@@ -1,9 +1,5 @@
-!apt-get -y install libzbar0
-!pip install pyzbar opencv-python-headless
-
 import cv2
 from pyzbar import pyzbar
-from google.colab.patches import cv2_imshow
 
 def decode_codes(image):
 
@@ -42,7 +38,9 @@ def main():
 
     decoded_image = decode_codes(image)
 
-    cv2_imshow(decoded_image)
+    cv2.imshow("Decoded Image", decoded_image)
+    cv2.waitKey(0)
+    cv2.destroyAllWindows()
 
 if __name__ == "__main__":
     main()
